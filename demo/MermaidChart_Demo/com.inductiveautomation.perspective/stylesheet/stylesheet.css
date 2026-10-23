@@ -1,0 +1,6 @@
+/* Fixture project on the default Ignition Perspective theme (light) - see workspace
+   CLAUDE.md: every project declares color-scheme so Chrome's auto dark mode does not
+   repaint the diagram's SVG fills. */
+html {
+	color-scheme: light;
+}

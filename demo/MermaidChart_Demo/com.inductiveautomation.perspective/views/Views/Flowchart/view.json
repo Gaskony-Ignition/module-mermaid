@@ -1,0 +1,211 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 640,
+      "width": 1366
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "title"
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "fontSize": "20px",
+                "fontWeight": "600"
+              },
+              "text": "Mermaid Chart Demo \u2014 Flowchart"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "subtitle"
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 1,
+              "shrink": 1
+            },
+            "props": {
+              "style": {
+                "alignSelf": "center",
+                "color": "#6b7480",
+                "fontSize": "13px"
+              },
+              "text": "A flowchart definition rendered offline, with zoom, pan and SVG download."
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.navigate(page='/')\n"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "navFlowchart"
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "color": "#ffffff"
+                  },
+                  "text": "Flowchart"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.navigate(page='/state')\n"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "navStatediagram"
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "color": "#ffffff"
+                  },
+                  "text": "State diagram"
+                },
+                "type": "ia.input.button"
+              },
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\tsystem.perspective.navigate(page='/editor')\n"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "navEditor"
+                },
+                "position": {
+                  "basis": "auto",
+                  "grow": 0,
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "color": "#ffffff"
+                  },
+                  "text": "Editor"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "nav"
+            },
+            "position": {
+              "basis": "auto",
+              "grow": 0,
+              "shrink": 0
+            },
+            "props": {
+              "alignItems": "center",
+              "direction": "row",
+              "style": {
+                "gap": "6px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "header"
+        },
+        "position": {
+          "basis": "auto",
+          "grow": 0,
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "row",
+          "style": {
+            "borderBottom": "1px solid #c8cdd2",
+            "gap": "16px",
+            "padding": "10px 16px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "chart"
+        },
+        "position": {
+          "basis": "0",
+          "grow": 1,
+          "shrink": 1
+        },
+        "props": {
+          "definition": "flowchart LR\n    Intake[Raw water intake] --> Screen[Screening]\n    Screen --> Coag{Coagulant dose OK?}\n    Coag -->|Yes| Floc[Flocculation]\n    Coag -->|No| Alarm[Raise dosing alarm]\n    Floc --> Clarify[Clarification]\n    Clarify --> Filter[Filtration]\n    Filter --> Disinfect[Disinfection]\n    Disinfect --> Storage[Clear water storage]",
+          "style": {
+            "classes": ""
+          }
+        },
+        "type": "gaskony.display.mermaid"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "position": {
+      "basis": "auto",
+      "grow": 0,
+      "shrink": 0
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "height": "100%",
+        "overflow": "hidden",
+        "width": "100%"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

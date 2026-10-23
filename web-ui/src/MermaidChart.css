@@ -1,0 +1,255 @@
+/* Colours come from the Perspective theme's variables, with light fallbacks for a theme that lacks them. */
+.mermaid-chart-component {
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mermaid-chart-inner,
+.mermaid-chart-viewport {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mermaid-chart-render-target,
+.mermaid-chart-render-target svg {
+  display: block;
+}
+
+.mermaid-chart-controls {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-40, #c8cdd2);
+  border-radius: 4px;
+}
+
+.mermaid-chart-designing .mermaid-chart-controls {
+  pointer-events: none;
+}
+
+.mermaid-chart-controls button {
+  min-width: 28px;
+  height: 24px;
+  padding: 0 7px;
+  font-size: 12px;
+  color: var(--neutral-90, #1f2933);
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-50, #b8bec7);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.mermaid-chart-controls button:focus-visible {
+  outline: 2px solid var(--callToAction, #0b5fff);
+  outline-offset: 1px;
+}
+
+.mermaid-chart-controls button:disabled {
+  color: var(--neutral-60, #6b7480);
+  cursor: default;
+}
+
+.mermaid-chart-zoom-label {
+  min-width: 38px;
+  font-size: 12px;
+  text-align: center;
+  color: var(--neutral-90, #1f2933);
+}
+
+.mermaid-chart-wheel-hint {
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--neutral-70, #4b5563);
+  white-space: nowrap;
+}
+
+.mermaid-chart-download {
+  position: relative;
+}
+
+.mermaid-chart-download-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  z-index: 2;
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-40, #c8cdd2);
+  border-radius: 4px;
+}
+
+.mermaid-chart-download-menu li button {
+  display: block;
+  width: 100%;
+  padding: 4px 10px;
+  text-align: left;
+  border-color: transparent;
+}
+
+.mermaid-chart-download-menu li button:hover {
+  background: var(--neutral-20, #eef2f7);
+}
+
+.mermaid-chart-error {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 8px;
+  overflow: auto;
+  font-family: monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  color: var(--error, #b00020);
+  background: var(--neutral-10, #ffffff);
+}
+
+/* Graphical editor: shown in the Designer while the component is deep-selected. The toolbar
+   takes its own row, so the diagram refits above it instead of hiding under it. */
+.mermaid-chart-inner.mermaid-chart-editing {
+  display: flex;
+  flex-direction: column;
+}
+
+.mermaid-chart-editing > .mermaid-chart-viewport {
+  flex: 1 1 0;
+  height: auto;
+}
+
+/* The Designer sets user-select: all inside a deep-selected component, so every click
+   highlights text. */
+.mermaid-chart-editing .mermaid-chart-render-target,
+.mermaid-chart-editing .mermaid-chart-render-target *,
+.mermaid-chart-edit-toolbar,
+.mermaid-chart-edit-toolbar * {
+  user-select: none !important;
+}
+
+.mermaid-chart-edit-toolbar {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 0 6px 6px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-40, #c8cdd2);
+  border-radius: 4px;
+}
+
+.mermaid-chart-edit-toolbar button {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 12px;
+  color: var(--neutral-90, #1f2933);
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-50, #b8bec7);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.mermaid-chart-edit-toolbar button:focus-visible,
+.mermaid-chart-inline-input:focus-visible {
+  outline: 2px solid var(--callToAction, #0b5fff);
+  outline-offset: 1px;
+}
+
+.mermaid-chart-edit-toolbar button:disabled {
+  color: var(--neutral-60, #6b7480);
+  cursor: default;
+}
+
+.mermaid-chart-edit-toolbar button[aria-pressed="true"],
+.mermaid-chart-edit-options button[aria-checked="true"] {
+  color: var(--neutral-10, #ffffff);
+  background: var(--callToAction, #0b5fff);
+  border-color: var(--callToAction, #0b5fff);
+}
+
+.mermaid-chart-edit-note {
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--neutral-70, #4b5563);
+}
+
+.mermaid-chart-edit-menu {
+  position: relative;
+}
+
+.mermaid-chart-edit-options {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  z-index: 4;
+  max-height: 220px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 2px;
+  list-style: none;
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--neutral-40, #c8cdd2);
+  border-radius: 4px;
+}
+
+/* The Direction button sits at the toolbar's right end, where a left-aligned menu is clipped. */
+.mermaid-chart-edit-options-end {
+  left: auto;
+  right: 0;
+}
+
+.mermaid-chart-edit-options li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  white-space: nowrap;
+  border-color: transparent;
+}
+
+.mermaid-chart-inline-input {
+  position: absolute;
+  z-index: 4;
+  box-sizing: border-box;
+  padding: 0 6px;
+  font-size: 13px;
+  color: var(--neutral-90, #1f2933);
+  background: var(--neutral-10, #ffffff);
+  border: 1px solid var(--callToAction, #0b5fff);
+  border-radius: 3px;
+  user-select: text !important;
+}
+
+.mermaid-chart-render-target g.node.mermaid-chart-selected :is(rect, polygon, circle, ellipse, path) {
+  stroke: var(--callToAction, #0b5fff) !important;
+  stroke-width: 3px !important;
+}
+
+.mermaid-chart-render-target path.mermaid-chart-selected {
+  stroke: var(--callToAction, #0b5fff) !important;
+  stroke-width: 3px !important;
+}
+
+.mermaid-chart-render-target .edgeLabel .mermaid-chart-selected {
+  outline: 2px solid var(--callToAction, #0b5fff);
+}

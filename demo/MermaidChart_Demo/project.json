@@ -1,0 +1,6 @@
+{
+  "title": "Mermaid Chart Demo",
+  "description": "Fixture project for the Mermaid Chart component: a flowchart, a state diagram, and the Designer-only graphical editor.",
+  "enabled": true,
+  "inheritable": false
+}

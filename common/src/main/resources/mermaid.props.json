@@ -1,0 +1,188 @@
+{
+  "type": "object",
+  "title": "Mermaid Chart Props",
+  "properties": {
+    "definition": {
+      "type": "string",
+      "description": "Mermaid diagram definition to render.",
+      "default": "flowchart TD\n    A[Start] --> B{Decision}\n    B -->|Yes| C[Render chart]\n    B -->|No| D[Update definition]"
+    },
+    "theme": {
+      "type": "string",
+      "description": "Mermaid theme.",
+      "enum": [
+        "default",
+        "base",
+        "dark",
+        "forest",
+        "neutral"
+      ],
+      "default": "default"
+    },
+    "securityLevel": {
+      "type": "string",
+      "description": "Mermaid security level. Keep strict for untrusted diagram definitions.",
+      "enum": [
+        "strict",
+        "antiscript",
+        "loose",
+        "sandbox"
+      ],
+      "default": "strict"
+    },
+    "showError": {
+      "type": "boolean",
+      "description": "Show Mermaid parse/render errors in the component.",
+      "default": true
+    },
+    "fitMode": {
+      "type": "string",
+      "description": "How the rendered diagram is fit into the component viewport.",
+      "enum": [
+        "contain",
+        "width",
+        "height",
+        "none"
+      ],
+      "default": "contain"
+    },
+    "padding": {
+      "type": "number",
+      "description": "Padding in pixels around the rendered diagram.",
+      "default": 8
+    },
+    "zoom": {
+      "type": "object",
+      "description": "Zoom behavior for the rendered diagram.",
+      "default": {
+        "enabled": true,
+        "showControls": true,
+        "wheel": true,
+        "wheelModifier": true,
+        "initial": 1,
+        "min": 0.25,
+        "max": 4,
+        "step": 0.25
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Allow the diagram to be zoomed.",
+          "default": true
+        },
+        "showControls": {
+          "type": "boolean",
+          "description": "Show zoom buttons over the diagram.",
+          "default": true
+        },
+        "wheel": {
+          "type": "boolean",
+          "description": "Allow mouse wheel zooming.",
+          "default": true
+        },
+        "wheelModifier": {
+         "type": "boolean",
+         "description": "Wheel zoom needs Ctrl/Cmd held, so a plain wheel still scrolls the page. False zooms on a plain wheel.",
+         "default": true
+        },
+        "initial": {
+          "type": "number",
+          "description": "Initial zoom multiplier applied after fitting.",
+          "default": 1
+        },
+        "min": {
+          "type": "number",
+          "description": "Minimum zoom multiplier.",
+          "default": 0.25
+        },
+        "max": {
+          "type": "number",
+          "description": "Maximum zoom multiplier.",
+          "default": 4
+        },
+        "step": {
+          "type": "number",
+          "description": "Zoom increment used by buttons and wheel zoom.",
+          "default": 0.25
+        }
+      }
+    },
+    "zoomLevel": {
+      "type": "number",
+      "description": "Current zoom multiplier. Updated by the component when zoom controls or wheel zoom change.",
+      "default": 1
+    },
+    "download": {
+      "type": "object",
+      "description": "Download options for exporting the rendered diagram.",
+      "default": {
+        "enabled": true,
+        "showControls": true,
+        "svg": true
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Allow the diagram to be downloaded.",
+          "default": true
+        },
+        "showControls": {
+          "type": "boolean",
+          "description": "Show the Download button over the diagram.",
+          "default": true
+        },
+        "svg": {
+          "type": "boolean",
+          "description": "Offer SVG (vector) download in the format menu.",
+          "default": true
+        }
+      }
+    },
+    "edit": {
+      "type": "object",
+      "description": "Graphical flowchart editing in the Designer.",
+      "default": {
+        "enabled": false
+      },
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Show the graphical editor in the Designer (double-click the diagram)",
+          "default": false
+        }
+      }
+    },
+    "style": {
+      "$ref": "urn:ignition-schema:schemas/style-properties.schema.json",
+      "default": {
+        "classes": ""
+      }
+    }
+  },
+  "default": {
+    "definition": "flowchart TD\n    A[Start] --> B{Decision}\n    B -->|Yes| C[Render chart]\n    B -->|No| D[Update definition]",
+    "theme": "default",
+    "securityLevel": "strict",
+    "fitMode": "contain",
+    "padding": 8,
+    "zoom": {
+      "enabled": true,
+      "showControls": true,
+      "wheel": true,
+      "initial": 1,
+      "min": 0.25,
+      "max": 4,
+      "step": 0.25
+    },
+    "zoomLevel": 1,
+    "download": {
+      "enabled": true,
+      "showControls": true,
+      "svg": true
+    },
+    "showError": true,
+    "style": {
+      "classes": ""
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Mermaid Chart for Ignition
+
+A fork of Cognidata Mermaid Chart 1.0.0 (MIT), https://cognidata.org,
+rebuilt for Ignition 8.3. Licensed under the MIT License, as upstream is;
+see LICENSE.
+
+This is an independent fork. It is NOT affiliated with, endorsed by, or
+supported by Cognidata, or by Inductive Automation, LLC. "Ignition" and
+"Inductive Automation" are trademarks of Inductive Automation, LLC, referenced
+here solely for identification and interoperability.
+
+The browser bundle includes third-party libraries under their own licences,
+chiefly Mermaid (MIT), react-zoom-pan-pinch (MIT) and DOMPurify (Apache-2.0 or
+MPL-2.0). Each one's licence text ships in the module as
+mounted/THIRD-PARTY-LICENSES.txt, generated at build time.

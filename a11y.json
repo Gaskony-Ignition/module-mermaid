@@ -1,0 +1,10 @@
+{
+  "gateway": "module-testing",
+  "projects": [
+    {
+      "name": "MermaidChart_Demo",
+      "pageConfig": "demo/MermaidChart_Demo/com.inductiveautomation.perspective/page-config/config.json"
+    }
+  ],
+  "exceptions": []
+}
