@@ -1,5 +1,5 @@
 {
-  "gateway": "module-testing",
+  "gateway": "rig",
   "projects": [
     {
       "name": "MermaidChart_Demo",
