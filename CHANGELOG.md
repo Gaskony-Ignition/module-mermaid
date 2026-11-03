@@ -3,6 +3,16 @@
 All notable changes to this module are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.3] - 2026-11-03
+
+### Security
+- The bundled code now ships mermaid 12.2.0 and DOMPurify 3.4.17, which fix two DOMPurify
+  advisories in the code that runs in the browser: GHSA-cg2g-xh64-v4q7 (critical,
+  SAFE_FOR_TEMPLATES bypass) and GHSA-mrv2-3pqr-j5jr (high, IN_PLACE hook leaves event
+  handlers armed). The mermaid update also brings chevrotain 13 and KaTeX 0.18.
+- The build and test tooling was updated (happy-dom 21, vitest 5.1.0, webpack 5.112.2,
+  webpack-cli 7.3.1) to clear the remaining dev-only alerts. None of it ships in the module.
+
 ## [0.3.2] - 2026-09-25
 
 ### Fixed

@@ -3,7 +3,7 @@ plugins {
     id("io.ia.sdk.modl") version "0.5.0"
 }
 
-version = "0.3.2"
+version = "0.3.3"
 group = "com.gaskony"
 
 allprojects {

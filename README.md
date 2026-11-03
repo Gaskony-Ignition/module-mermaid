@@ -39,7 +39,7 @@ The demo project's screens meet WCAG 2.1 AA except for limits in Perspective its
 
 ## How to use it
 
-1. Install `MermaidChart-0.3.2.modl` from **Platform > Modules > Install or Upgrade Module**, and accept its certificate and licence. Uninstall Cognidata's Mermaid Chart first if it is present.
+1. Install `MermaidChart-0.3.3.modl` from **Platform > Modules > Install or Upgrade Module**, and accept its certificate and licence. Uninstall Cognidata's Mermaid Chart first if it is present.
 2. In the Designer, open a Perspective view and drag **Mermaid Chart** from the component palette (category *Mermaid Chart*).
 3. Set `props.definition`, for example:
 
