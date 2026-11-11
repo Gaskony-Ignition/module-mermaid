@@ -13,7 +13,7 @@
         "children": [
           {
             "meta": {
-              "name": "title"
+              "name": "Title"
             },
             "position": {
               "basis": "auto",
@@ -31,7 +31,7 @@
           },
           {
             "meta": {
-              "name": "subtitle"
+              "name": "Subtitle"
             },
             "position": {
               "basis": "auto",
@@ -41,7 +41,7 @@
             "props": {
               "style": {
                 "alignSelf": "center",
-                "color": "#6b7480",
+                "color": "var(--neutral-70)",
                 "fontSize": "13px"
               },
               "text": "The same component rendering a different Mermaid diagram type."
@@ -63,7 +63,7 @@
                   }
                 },
                 "meta": {
-                  "name": "navFlowchart"
+                  "name": "NavFlowchart"
                 },
                 "position": {
                   "basis": "auto",
@@ -72,7 +72,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "#ffffff"
+                    "color": "var(--neutral-10)"
                   },
                   "text": "Flowchart"
                 },
@@ -91,7 +91,7 @@
                   }
                 },
                 "meta": {
-                  "name": "navStatediagram"
+                  "name": "NavStateDiagram"
                 },
                 "position": {
                   "basis": "auto",
@@ -100,7 +100,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "#ffffff"
+                    "color": "var(--neutral-10)"
                   },
                   "text": "State diagram"
                 },
@@ -119,7 +119,7 @@
                   }
                 },
                 "meta": {
-                  "name": "navEditor"
+                  "name": "NavEditor"
                 },
                 "position": {
                   "basis": "auto",
@@ -128,7 +128,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "#ffffff"
+                    "color": "var(--neutral-10)"
                   },
                   "text": "Editor"
                 },
@@ -136,7 +136,7 @@
               }
             ],
             "meta": {
-              "name": "nav"
+              "name": "Nav"
             },
             "position": {
               "basis": "auto",
@@ -154,7 +154,7 @@
           }
         ],
         "meta": {
-          "name": "header"
+          "name": "Header"
         },
         "position": {
           "basis": "auto",
@@ -165,7 +165,7 @@
           "alignItems": "center",
           "direction": "row",
           "style": {
-            "borderBottom": "1px solid #c8cdd2",
+            "borderBottom": "1px solid var(--neutral-40)",
             "gap": "16px",
             "padding": "10px 16px"
           }
@@ -174,7 +174,7 @@
       },
       {
         "meta": {
-          "name": "chart"
+          "name": "Chart"
         },
         "position": {
           "basis": "0",
