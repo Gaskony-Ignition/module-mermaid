@@ -3,6 +3,16 @@
 All notable changes to this module are recorded here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.4] - 2026-11-25
+
+### Changed
+- Dependencies at latest stable. Shipped in the bundle: mermaid 12.2.0 → 12.3.0 (DOMPurify
+  3.4.17 → 3.5.0), react-zoom-pan-pinch 4.2.0 → 4.4.0. Build only: Gradle wrapper 8.10.2 →
+  9.9.2, webpack 5.112.2 → 5.113.0, vitest 5.1.0 → 5.1.1, @types/react 18.3.31 → 18.3.32.
+- `react-dom` 18.3.1 is now a declared dev dependency (react-zoom-pan-pinch's peer); it was
+  already resolved at that version and is not bundled. React stays on 18 for the Perspective
+  page's global.
+
 ## [0.3.3] - 2026-11-03
 
 ### Security
