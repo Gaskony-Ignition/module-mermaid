@@ -72,7 +72,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "var(--neutral-00)"
+                    "color": "#ffffff"
                   },
                   "text": "Flowchart"
                 },
@@ -100,7 +100,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "var(--neutral-00)"
+                    "color": "#ffffff"
                   },
                   "text": "State diagram"
                 },
@@ -128,7 +128,7 @@
                 },
                 "props": {
                   "style": {
-                    "color": "var(--neutral-00)"
+                    "color": "#ffffff"
                   },
                   "text": "Editor"
                 },
