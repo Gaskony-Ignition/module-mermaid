@@ -49,16 +49,18 @@ ignitionModule {
 tasks.register("syncVersion") {
     group = "versioning"
     description = "Syncs project.version into web-ui/package.json and the README"
+    val ver = project.version.toString()
+    val packageJson = file("web-ui/package.json")
+    val readme = file("README.md")
     doLast {
-        val ver = project.version.toString()
         fun sync(f: File, pattern: Regex, replacement: String) {
             if (!f.exists()) return
             val text = f.readText()
             val updated = text.replaceFirst(pattern, replacement)
             if (updated != text) { f.writeText(updated); logger.lifecycle("  synced ${f.name} -> $ver") }
         }
-        sync(file("web-ui/package.json"), Regex(""""version":\s*"[^"]+""""), """"version": "$ver"""")
-        sync(file("README.md"), Regex("""MermaidChart-[\d.]+\.modl"""), "MermaidChart-${ver}.modl")
+        sync(packageJson, Regex(""""version":\s*"[^"]+""""), """"version": "$ver"""")
+        sync(readme, Regex("""MermaidChart-[\d.]+\.modl"""), "MermaidChart-${ver}.modl")
     }
 }
 
@@ -67,13 +69,17 @@ tasks.named("assembleModlStructure") {
 }
 
 // A green build is not proof of a correct package: assert what is inside the signed .modl.
-val verifyModulePackaging by tasks.registering {
+val verifyModulePackaging = tasks.register("verifyModulePackaging") {
     description = "Fails the build if the signed .modl lacks the component bundle or carries stale jars"
     group = "verification"
     dependsOn("signModule")
 
+    val ver = project.version.toString()
+    val modlFile = layout.buildDirectory.file("MermaidChart-${ver}.modl")
+    val skipped = signingSkipped
+
     doLast {
-        val modl = layout.buildDirectory.file("MermaidChart-${project.version}.modl").get().asFile
+        val modl = modlFile.get().asFile
         if (!modl.exists()) throw GradleException("verifyModulePackaging: ${modl.name} not found")
 
         val entries = mutableListOf<String>()
@@ -96,9 +102,9 @@ val verifyModulePackaging by tasks.registering {
             problems += "no mermaid diagram chunks under mounted/"
         }
         // An incremental build after a version bump keeps the old version's jars in moduleContent.
-        entries.filter { Regex("""^(gateway|common|designer)-.*\.jar$""").matches(it) && !it.contains("-${project.version}.jar") }
+        entries.filter { Regex("""^(gateway|common|designer)-.*\.jar$""").matches(it) && !it.contains("-$ver.jar") }
             .forEach { problems += "stale jar from another version: $it" }
-        if (!signingSkipped) {
+        if (!skipped) {
             listOf("certificates.p7b", "signatures.properties").forEach { if (it !in entries) problems += "unsigned: no $it" }
         }
 

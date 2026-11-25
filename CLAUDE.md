@@ -26,7 +26,8 @@ cd web-ui && npm run typecheck && npm test      # frontend only
 - The mount alias appears twice: `MermaidComponents.MOUNT_ALIAS` and webpack `publicPath`.
   Change one and diagram chunks 404.
 - React is the Perspective page's global (`React`, 18.x); only `react/jsx-runtime` is bundled,
-  pulled in by react-zoom-pan-pinch. Keep `react` at 18 in devDependencies.
+  pulled in by react-zoom-pan-pinch. Keep `react` and `react-dom` at 18 in devDependencies
+  (react-dom is pinned there so npm does not resolve react-zoom-pan-pinch's peer to 19).
 - TypeScript 7 has no compiler API, so ts-loader cannot run; esbuild transpiles and
   `tsc --noEmit` type-checks.
 - `mermaid.initialize` is global: every render goes through the queue in `renderMermaid.ts`.

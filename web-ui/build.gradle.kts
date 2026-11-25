@@ -6,7 +6,7 @@ val isWindows = System.getProperty("os.name").lowercase().contains("windows")
 fun npm(vararg args: String): List<String> =
     if (isWindows) listOf("cmd", "/c", "npm", *args) else listOf("npm", *args)
 
-val npmInstall by tasks.registering(Exec::class) {
+val npmInstall = tasks.register<Exec>("npmInstall") {
     group = "build"
     description = "Installs the locked npm dependencies"
     workingDir = projectDir
@@ -15,7 +15,7 @@ val npmInstall by tasks.registering(Exec::class) {
     outputs.dir("node_modules")
 }
 
-val webpack by tasks.registering(Exec::class) {
+val webpack = tasks.register<Exec>("webpack") {
     group = "build"
     description = "Type-checks and bundles the Perspective component"
     workingDir = projectDir
@@ -27,7 +27,7 @@ val webpack by tasks.registering(Exec::class) {
     outputs.dir(layout.buildDirectory.dir("generated-resources"))
 }
 
-val frontendTest by tasks.registering(Exec::class) {
+val frontendTest = tasks.register<Exec>("frontendTest") {
     group = "verification"
     description = "Runs the Vitest unit tests"
     workingDir = projectDir

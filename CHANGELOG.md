@@ -12,6 +12,8 @@ All notable changes to this module are recorded here. The format follows
 - `react-dom` 18.3.1 is now a declared dev dependency (react-zoom-pan-pinch's peer); it was
   already resolved at that version and is not bundled. React stays on 18 for the Perspective
   page's global.
+- The Gradle build scripts no longer use the Kotlin DSL `by registering` delegates or read
+  `Task.project` at execution time, both deprecated in Gradle 9.
 
 ## [0.3.3] - 2026-11-03
 
